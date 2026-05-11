@@ -195,7 +195,7 @@ public class MyXlet implements UserEventListener, Xlet {
 	addPayload("shsrv.elf             - A Telnet server running on port 2323", "/disc/shsrv.elf");
 	addPayload("kstuff.elf            - A fake package enabler", "/disc/kstuff.elf");
 	addPayload("gdbsrv.elf            - A GDB server running on port 2159", "/disc/gdbsrv.elf");
-	addPayload("ps5-linux-loader.elf  - A Linux bootloader", "/disc/linldr.elf")
+	addPayload("ps5-linux-loader.elf  - A Linux bootloader", "/disc/linldr.elf");
 	logUI.setVisible(false);
     }
 
