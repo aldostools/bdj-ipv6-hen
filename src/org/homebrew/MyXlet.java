@@ -34,6 +34,7 @@ public class MyXlet implements UserEventListener, Xlet {
     private static String SHSRV_URL   = "https://github.com/ps5-payload-dev/shsrv/releases/latest/download/shsrv-ps5.elf";
     private static String GDBSRV_URL  = "https://github.com/ps5-payload-dev/gdbsrv/releases/latest/download/gdbsrv-ps5.elf";
     private static String ḰSTUFF_URL  = "https://github.com/EchoStretch/kstuff/releases/latest/download/kstuff.elf";
+    private static String LINLDR_URL  = "https://github.com/ps5-linux/ps5-linux-loader/releases/latest/download/ps5-linux-loader.elf";
 
     private HScene scene;
     private LoggingUI logUI;
@@ -179,18 +180,22 @@ public class MyXlet implements UserEventListener, Xlet {
 	addPayload("gdbsrv.elf  - A GDB server running on port 2159", GDBSRV_URL);
 
 	listUI.addItem("");
+	listUI.addItem("Payloads from https://github.com/ps5-linux/ps5-linux-loader");
+	addPayload("ps5-linux-loader.elf - A Linux bootloader", LINLDR_URL);
+
+	listUI.addItem("");
     	listUI.addItem("Payloads from https://github.com/EchoStretch");
 	addPayload("kstuff.elf - A fake package enabler", ḰSTUFF_URL);
 
 	listUI.addItem("");
 	listUI.addItem("Payloads from disc");
-	addPayload("klogsrv.elf - A kernel logging server running on port 3232", "/disc/klogsrv.elf");
-	addPayload("ftpsrv.elf  - An FTP server running on port 2121", "/disc/ftpsrv.elf");
-	addPayload("websrv.elf  - A web server running on port 8080", "/disc/websrv.elf");
-	addPayload("shsrv.elf   - A Telnet server running on port 2323", "/disc/shsrv.elf");
-	addPayload("kstuff.elf  - A fake package enabler", "/disc/kstuff.elf");
-	addPayload("gdbsrv.elf  - A GDB server running on port 2159", "/disc/gdbsrv.elf");
-
+	addPayload("klogsrv.elf           - A kernel logging server running on port 3232", "/disc/klogsrv.elf");
+	addPayload("ftpsrv.elf            - An FTP server running on port 2121", "/disc/ftpsrv.elf");
+	addPayload("websrv.elf            - A web server running on port 8080", "/disc/websrv.elf");
+	addPayload("shsrv.elf             - A Telnet server running on port 2323", "/disc/shsrv.elf");
+	addPayload("kstuff.elf            - A fake package enabler", "/disc/kstuff.elf");
+	addPayload("gdbsrv.elf            - A GDB server running on port 2159", "/disc/gdbsrv.elf");
+	addPayload("ps5-linux-loader.elf  - A Linux bootloader", "/disc/linldr.elf")
 	logUI.setVisible(false);
     }
 

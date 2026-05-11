@@ -48,6 +48,7 @@ WEBSRV_URL  := https://github.com/ps5-payload-dev/websrv/releases/latest/downloa
 SHSRV_URL   := https://github.com/ps5-payload-dev/shsrv/releases/latest/download/shsrv-ps5.elf
 GDBSRV_URL  := https://github.com/ps5-payload-dev/gdbsrv/releases/latest/download/gdbsrv-ps5.elf
 KSTUFF_URL  := https://github.com/EchoStretch/kstuff/releases/latest/download/kstuff.elf
+LINLDR_URL  := https://github.com/ps5-linux/ps5-linux-loader/releases/latest/download/ps5-linux-loader.elf
 
 #
 # Disc files
@@ -60,7 +61,7 @@ DISC_DIRS  := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_DIRS)) 
 DISC_FILES := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_FILES)) \
               discdir/BDMV/JAR/00000.jar discdir/elfldr.elf discdir/klogsrv.elf \
 	      discdir/ftpsrv.elf discdir/websrv.elf discdir/shsrv.elf \
-	      discdir/kstuff.elf discdir/gdbsrv.elf
+	      discdir/kstuff.elf discdir/gdbsrv.elf discdir/ps5-linux-loader.elf
 
 all: $(DISC_LABEL).iso
 
@@ -87,6 +88,10 @@ discdir/gdbsrv.elf:
 
 discdir/kstuff.elf:
 	wget -qO- $(KSTUFF_URL) > $@
+
+discdir/ps5-linux-loader.elf:
+	wget -qO- $(LINLDR_URL) > $@
+
 
 discdir/BDMV/JAR/00000.jar: discdir $(SOURCES)
 	$(JAVAC) $(JFLAGS) -cp $(CLASSPATH) $(SOURCES)
